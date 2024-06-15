@@ -33,6 +33,7 @@ function App() {
   return (
     <>
       <Header />
+      <div>sdfksdkfj</div>
       <GridContainer>
         {images.map((image, index) => <Piece key={index} image={image} alt={`image $`}></Piece>)}
       </GridContainer>
