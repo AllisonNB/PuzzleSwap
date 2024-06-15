@@ -18,7 +18,7 @@ import Header from './Components/Header';
 const GridContainer = styled.div`
   border: solid green;
   display: grid;
-  grid-template-columns: 200px 200px 200px;
+  grid-template-columns: repeat(3, 200px);
   gap: 10px 20px;
   padding: 0 0 0 100px;
 `
