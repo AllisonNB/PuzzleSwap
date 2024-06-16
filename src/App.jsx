@@ -20,7 +20,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 200px);
   gap: 10px 20px;
-  padding: 0 0 0 100px;
+  padding: 0 0 0 50px;
 `
 
 const images = [ear, ear2, ear3, eye, eye2, head, nose, whisker, whisker2]
