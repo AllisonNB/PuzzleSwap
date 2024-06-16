@@ -31,7 +31,7 @@ const Piece = ({ image }) => {
         return combine(
             draggable({
                 element: el,
-                getInitialData: () => ({ src: image }, console.log({ src: image })),
+                getInitialData: () => ({ src: image }),
                 onDragStart: () => setDragging('dragging'),
                 onDrop: () => setDragging('idle'),
             }),
@@ -39,7 +39,9 @@ const Piece = ({ image }) => {
                 element: el,
                 onDragEnter: () => setIsDraggedOver(true),
                 onDragLeave: () => setIsDraggedOver(false),
-                onDrop: () => setIsDraggedOver(false)
+                onDrop: () => setIsDraggedOver(false),
+                canDrop: ({ source }) => source.data.src !== image,
+                getIsSticky: () => true,
             })
         );
     }, [])
