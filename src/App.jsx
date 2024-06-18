@@ -1,4 +1,5 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 import styled from 'styled-components';
 
 import Piece from './Components/Piece';
@@ -19,22 +20,47 @@ const GridContainer = styled.div`
   border: solid green;
   display: grid;
   grid-template-columns: repeat(3, 200px);
-  gap: 10px 20px;
+  gap: 5px 10px;
   padding: 0 0 0 50px;
 `
 
-const images = [ear, ear2, ear3, eye, eye2, head, nose, whisker, whisker2]
-
-
 
 function App() {
+
+  const [images, setImages] = useState([
+    ear, ear2, ear3, eye, eye2, head, nose, whisker, whisker2
+  ])
+
+  //monitor where elements are dropped
+  useEffect(() => {
+    return monitorForElements({
+      onDrop({ source, location }) {
+        const destination = location.current.dropTargets[0];
+        if (!destination) {
+          return
+        }
+
+        const destinationSrc = destination.data.src;
+        const startSrc = source.data.src;
+        console.log('startSrc: ', startSrc);
+        console.log('destinationSrc: ', destinationSrc);
+
+        //swapping positions
+        const updatedImages = [...images];
+        updatedImages[images.indexOf(startSrc)] = destinationSrc;
+        updatedImages[images.indexOf(destinationSrc)] = startSrc;
+        setImages(updatedImages);
+      }
+    })
+  }, [images]);
+
 
 
   return (
     <>
       <Header />
       <GridContainer>
-        {images.map((image, index) => <Piece key={index} image={image} alt={`image $`}></Piece>)}
+        {images.map((image) => <Piece key={image} image={image} alt={`image $`}></Piece>)}
       </GridContainer>
     </>
   )

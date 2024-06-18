@@ -11,8 +11,8 @@ const HeaderBox = styled.div`
 const Header = () => {
     return (
         <HeaderBox>
-            <h1>Puzzle!</h1>
-            <h2>swap the puzzle pieces to display the correct image!</h2>
+            <h1>Puzzle Swap</h1>
+            <h2>Swap the puzzle pieces to display the correct image</h2>
         </HeaderBox>
     )
 }
