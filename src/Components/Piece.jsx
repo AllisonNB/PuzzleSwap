@@ -14,6 +14,10 @@ const Item = styled.img`
     height: auto;
     objectFit: cover;
     ${props => props.$dragging === 'dragging' && 'opacity: 0.2;'}
+
+    &:hover{
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+    }
 `
 
 
@@ -37,6 +41,7 @@ const Piece = ({ image }) => {
             }),
             dropTargetForElements({
                 element: el,
+                getData: () => ({ src: image }),
                 onDragEnter: () => setIsDraggedOver(true),
                 onDragLeave: () => setIsDraggedOver(false),
                 onDrop: () => setIsDraggedOver(false),
