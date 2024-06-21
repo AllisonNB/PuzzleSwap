@@ -3,16 +3,22 @@ import styled from 'styled-components';
 
 
 const HeaderBox = styled.div`
-    border: solid red;
     text-align: center;
+    color: #6a040f;
+
+    & h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 1%;
+    }
 `
 
 
 const Header = () => {
     return (
         <HeaderBox>
-            <h1>Puzzle!</h1>
-            <h2>swap the puzzle pieces to display the correct image!</h2>
+            <h1>Puzzle Swap</h1>
+            <h2>Swap the puzzle pieces to display the correct image</h2>
         </HeaderBox>
     )
 }
