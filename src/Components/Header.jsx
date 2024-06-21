@@ -3,8 +3,14 @@ import styled from 'styled-components';
 
 
 const HeaderBox = styled.div`
-    border: solid red;
     text-align: center;
+    color: #6a040f;
+
+    & h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 1%;
+    }
 `
 
 

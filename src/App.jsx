@@ -15,13 +15,33 @@ import whisker2 from './assets/whisker2.jpg';
 import Header from './Components/Header';
 
 
+const AppContainer = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+`
 
 const GridContainer = styled.div`
-  border: solid green;
   display: grid;
-  grid-template-columns: repeat(3, 200px);
-  gap: 5px 10px;
-  padding: 0 0 0 50px;
+  padding: 10px;
+
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 150px);
+    gap: 2px 4px;
+  }
+
+  @media (min-width: 601px) and (max-width: 1024px) { 
+    grid-template-columns: repeat(3, 150px);
+    gap: 5px 10px;
+  }
+
+
+  @media (min-width: 1025px) {
+    grid-template-columns: repeat(3, 200px);
+    gap: 5px 10px;
+  }
 `
 
 
@@ -50,6 +70,18 @@ function App() {
         updatedImages[images.indexOf(startSrc)] = destinationSrc;
         updatedImages[images.indexOf(destinationSrc)] = startSrc;
         setImages(updatedImages);
+
+        //feedback on success
+        const correctPuzzle = [ear3, head, ear2, ear, eye2, eye, whisker, whisker2, nose];
+        const evaluatePuzzle = (array1, array2) => {
+          for (let i = 0; i < array1.length; i++) {
+            if (array1[i] !== array2[i]) {
+              return false;
+            }
+          }
+          return true;
+        }
+        let isCorrectPuzzle = evaluatePuzzle(correctPuzzle, updatedImages);
       }
     })
   }, [images]);
@@ -57,12 +89,12 @@ function App() {
 
 
   return (
-    <>
+    <AppContainer>
       <Header />
       <GridContainer>
         {images.map((image) => <Piece key={image} image={image} alt={`image $`}></Piece>)}
       </GridContainer>
-    </>
+    </AppContainer>
   )
 }
 
