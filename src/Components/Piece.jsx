@@ -33,15 +33,13 @@ const Piece = ({ image }) => {
 
     useEffect(() => {
         const el = ref.current;
-        invariant(el); //throws error if falsy value
+        invariant(el); //throws error if falsy
 
         return combine(
             draggable({
                 element: el,
                 getInitialData: () => ({ src: image }),
-                onDragStart: () => {
-                    setDragging('dragging');
-                },
+                onDragStart: () => setDragging('dragging'),
                 onDrop: () => setDragging('idle'),
             }),
             dropTargetForElements({
