@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 
 const Item = styled.img`
-    border: ${props => props.$isDraggedOver ? 'solid red;' : 'solid white;'}
+    border: ${props => props.$isDraggedOver ? 'solid red;' : 'solid #a8dadc;'}
     border-radius: 10px;    
     max-width: 100%;
     height: auto;
