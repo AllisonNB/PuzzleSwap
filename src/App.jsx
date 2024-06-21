@@ -92,7 +92,7 @@ function App() {
     <AppContainer>
       <Header />
       <GridContainer>
-        {images.map((image) => <Piece key={image} image={image} alt={`image $`}></Piece>)}
+        {images.map((image) => <Piece key={image} image={image} alt={`image $`} onContextMenu={(e) => (e.preventDefault())} ></Piece>)}
       </GridContainer>
     </AppContainer>
   )
