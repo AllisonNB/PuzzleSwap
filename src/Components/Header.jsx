@@ -16,10 +16,12 @@ const HeaderBox = styled.div`
 
 const Header = () => {
     return (
-        <HeaderBox>
-            <h1>Puzzle Swap</h1>
-            <h2>Swap the puzzle pieces to display the correct image</h2>
-        </HeaderBox>
+        <>
+            <HeaderBox>
+                <h1>Puzzle Swap</h1>
+                <h2>Swap the puzzle pieces to display the correct image</h2>
+            </HeaderBox>
+        </>
     )
 }
 
