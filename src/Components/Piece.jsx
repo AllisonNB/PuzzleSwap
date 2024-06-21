@@ -27,6 +27,9 @@ const Piece = ({ image }) => {
     const [dragging, setDragging] = useState('idle');
     const [isDraggedOver, setIsDraggedOver] = useState(false);
 
+    const handleContextMenu = (e) => {
+        e.preventDefault();
+    }
 
     useEffect(() => {
         const el = ref.current;
@@ -36,7 +39,9 @@ const Piece = ({ image }) => {
             draggable({
                 element: el,
                 getInitialData: () => ({ src: image }),
-                onDragStart: () => setDragging('dragging'),
+                onDragStart: () => {
+                    setDragging('dragging');
+                },
                 onDrop: () => setDragging('idle'),
             }),
             dropTargetForElements({
@@ -53,7 +58,7 @@ const Piece = ({ image }) => {
 
 
     return (
-        <Item ref={ref} src={image} $dragging={dragging} $isDraggedOver={isDraggedOver}></Item>
+        <Item ref={ref} src={image} $dragging={dragging} $isDraggedOver={isDraggedOver} onContextMenu={handleContextMenu}></Item>
     )
 }
 
