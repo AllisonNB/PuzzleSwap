@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 import styled from 'styled-components';
 
@@ -13,6 +13,8 @@ import nose from './assets/nose.jpg';
 import whisker from './assets/whisker.jpg';
 import whisker2 from './assets/whisker2.jpg';
 import Header from './Components/Header';
+
+import Modal from './Components/Modal';
 
 
 const AppContainer = styled.div`
@@ -51,6 +53,8 @@ function App() {
     ear, ear2, ear3, eye, eye2, head, nose, whisker, whisker2
   ])
 
+  const modal = useRef();
+
   //monitor where elements are dropped
   useEffect(() => {
     return monitorForElements({
@@ -62,34 +66,49 @@ function App() {
 
         const destinationSrc = destination.data.src;
         const startSrc = source.data.src;
-        console.log('startSrc: ', startSrc);
-        console.log('destinationSrc: ', destinationSrc);
 
         //swapping positions
         const updatedImages = [...images];
         updatedImages[images.indexOf(startSrc)] = destinationSrc;
         updatedImages[images.indexOf(destinationSrc)] = startSrc;
         setImages(updatedImages);
-
-        //feedback on success
-        const correctPuzzle = [ear3, head, ear2, ear, eye2, eye, whisker, whisker2, nose];
-        const evaluatePuzzle = (array1, array2) => {
-          for (let i = 0; i < array1.length; i++) {
-            if (array1[i] !== array2[i]) {
-              return false;
-            }
-          }
-          return true;
-        }
-        let isCorrectPuzzle = evaluatePuzzle(correctPuzzle, updatedImages);
       }
     })
   }, [images]);
 
 
+  //feedback on success
+  useEffect(() => {
+    const correctPuzzle = [ear3, head, ear2, ear, eye2, eye, whisker, whisker2, nose];
+
+    const evaluatePuzzle = (array1, array2) => {
+      for (let i = 0; i < array1.length; i++) {
+        if (array1[i] !== array2[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    let isCorrectPuzzle = evaluatePuzzle(correctPuzzle, images);
+    console.log(isCorrectPuzzle)
+
+    if (isCorrectPuzzle) {
+      modal.current.open();
+    }
+
+  }, [images])
+
+
+
+  const handleReset = () => {
+    console.log('puzzle reset!')
+  }
+
 
   return (
     <AppContainer>
+      <Modal ref={modal} onReset={handleReset} />
       <Header />
       <GridContainer>
         {images.map((image) => <Piece key={image} image={image} alt={`image $`}></Piece>)}
