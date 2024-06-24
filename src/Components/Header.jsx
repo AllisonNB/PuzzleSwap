@@ -8,8 +8,11 @@ const HeaderBox = styled.div`
 
     & h1 {
     font-weight: 900;
-    font-size: 3rem;
-    margin-top: 10%;
+    font-size: 4rem;
+    }
+
+    & h2 {
+        font-size: 2rem;
     }
 `
 
