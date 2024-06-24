@@ -42,7 +42,7 @@ const Modal = forwardRef(function modal({ handleReset }, ref) {
         <Dialog ref={dialog}>
             <h2>Congrats!</h2>
             <h3>You successfully completed the puzzle!</h3>
-            <form action="dialog">
+            <form method="dialog">
                 <Button autoFocus>Close</Button>
             </form>
         </Dialog>,
