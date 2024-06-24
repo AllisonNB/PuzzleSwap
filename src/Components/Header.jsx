@@ -9,10 +9,16 @@ const HeaderBox = styled.div`
     & h1 {
     font-weight: 900;
     font-size: 4rem;
+    margin: 10% 0 5% 0;
+    
+    @media (min-width: 1024px) { 
+        margin: 2%;
+    }
     }
 
     & h2 {
         font-size: 2rem;
+        margin: 2% 0 2% 0;
     }
 `
 
