@@ -21,13 +21,16 @@ const AppContainer = styled.div`
   display: grid;
   place-items: center;
   width: 100vw;
-  gap: 5%;
+
+  @media (max-width: 1024px) { 
+    gap: 5%
+  }
 `
 
 const GridContainer = styled.div`
   display: grid;
   padding: 10px;
-  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: repeat(3, 250px);
 
 
   @media (max-width: 600px) {
