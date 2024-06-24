@@ -20,7 +20,6 @@ import Modal from './Components/Modal';
 const AppContainer = styled.div`
   display: grid;
   place-items: center;
-  width: 100vw;
 
   @media (max-width: 1024px) { 
     gap: 5%
