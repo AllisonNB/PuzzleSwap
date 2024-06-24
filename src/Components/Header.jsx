@@ -13,6 +13,7 @@ const HeaderBox = styled.div`
     
     @media (min-width: 1024px) { 
         margin: 2%;
+        font-size: 3.5rem;
     }
     }
 
