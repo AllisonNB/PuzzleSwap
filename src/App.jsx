@@ -110,7 +110,7 @@ function App() {
       <Modal ref={modal} onReset={handleReset} />
       <Header />
       <GridContainer>
-        {images.map((image) => <Piece key={image} image={image} alt={`image $`}></Piece>)}
+        {images.map((image) => <Piece key={image} image={image} alt={`puzzle piece`}></Piece>)}
       </GridContainer>
     </AppContainer>
   )
