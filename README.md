@@ -1,5 +1,5 @@
 # Puzzle Swap
-A surprisingly challenging puzzle utilizing Pragmatic DnD. Also features a wonderfully cute furry creature. 😼
+A surprisingly challenging puzzle utilizing Pragmatic Drag & Drop. Also features a wonderfully cute furry creature. 😼
 
 # How To Use 
 1. Use "npm install" to install all the project dependencies 
