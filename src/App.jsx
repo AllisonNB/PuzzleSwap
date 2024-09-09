@@ -3,15 +3,15 @@ import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/ad
 import styled from 'styled-components';
 
 import Piece from './Components/Piece';
-import ear from './assets/ear.jpg'
-import ear2 from './assets/ear2.jpg';
-import ear3 from './assets/ear3.jpg';
-import eye from './assets/eye.jpg';
-import eye2 from './assets/eye2.jpg';
-import head from './assets/head.jpg';
-import nose from './assets/nose.jpg';
-import whisker from './assets/whisker.jpg';
-import whisker2 from './assets/whisker2.jpg';
+import ear from '/ear.jpg'
+import ear2 from '/ear2.jpg';
+import ear3 from '/ear3.jpg';
+import eye from '/eye.jpg';
+import eye2 from '/eye2.jpg';
+import head from '/head.jpg';
+import nose from '/nose.jpg';
+import whisker from '/whisker.jpg';
+import whisker2 from '/whisker2.jpg';
 import Header from './Components/Header';
 
 import Modal from './Components/Modal';
@@ -20,27 +20,25 @@ import Modal from './Components/Modal';
 const AppContainer = styled.div`
   display: grid;
   place-items: center;
-
-  @media (max-width: 1024px) { 
-    gap: 5%
-  }
 `
 
 const GridContainer = styled.div`
   display: grid;
   padding: 10px;
-  grid-template-columns: repeat(3, 250px);
-
+  margin: 0 5% 0 5%;
+  grid-template-columns: repeat(3, 1fr);
 
   @media (max-width: 600px) {
     gap: 2px 4px;
   }
 
   @media (min-width: 601px) and (max-width: 1024px) { 
+    margin: 0 10% 0 10%;
     gap: 5px 10px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
+    margin: 0 20% 0 20%;
     gap: 5px 10px;
   }
 `
